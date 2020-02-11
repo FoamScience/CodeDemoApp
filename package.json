@@ -1,0 +1,23 @@
+{
+  "name": "codeapp",
+  "version": "0.0.1",
+  "description": "Display code snippets for the Basic Reservoir Engineering with OpenFOAM course",
+  "repository": "foamscience/foam-reseng-samples",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.2"
+  },
+  "dependencies": {
+    "@glorious/demo": "^0.1.0",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^3.13.1",
+    "node-json-db": "^1.0.3",
+    "fuse.js": "^3.4.6",
+    "hotkeys-js": "^3.7.3",
+    "prismjs": "^1.19.0"
+  }
+}

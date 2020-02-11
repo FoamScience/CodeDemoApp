@@ -1,0 +1,20 @@
+title: "OpenFOAM keyword-value Example"
+description: "Basic OpenFOAM keyword and dictionary syntax"
+
+editor:
+  - Snippet1:
+    options: {windowTitle: 'SnippetOne', minHeight: '350px', fontSize: '60px'}
+    language: 'javascript'
+    text: "function name () {doSomething();}"
+terminals:
+  - Term1:
+    options: {minHeight: '350px', promptString: '$'}
+    commands:
+      - FirstCommand:
+        command: 'ls -l /myownfileisdisplayed'
+        options: {onCompleteDelay: 10000}
+        output: 'file1.tx -- --- --- permissions --- --- -- creation time ----'
+      - SecondCommand:
+        command: 'ls -l /second'
+        options: {onCompleteDelay: 2000}
+        output: 'YAY'

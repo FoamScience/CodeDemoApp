@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>OpenFOAM Code Cheats</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="node_modules/@glorious/demo/dist/gdemo.min.css">
+  <link rel="stylesheet" href="node_modules/prismjs/themes/prism-tomorrow.css">
+  <script src="node_modules/@glorious/demo/dist/gdemo.min.js"></script>
+  <script src="node_modules/prismjs/components.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Scripts -->
+  <script>
+    delete module.exports
+  </script>
+  <script src="./jquery-3.2.1.js"></script>
+  <script src="./window.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+  <div id="container" class="container-fluid">
+
+    <!-- Input row -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <!--<h3 class="hash-heading">Input</h3>-->
+        <textarea rows="1" id="text-input" class="form-control text-input" placeholder="Search for OpenFOAM cheats..."></textarea>
+        <div id="code-container"> 
+           <!-- The overlay -->
+        <div id="default-page" class="overlay">
+        
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <h1>OpenFOAM Code/Case Examples for the Reservoir Engineering Course</h1>
+            <h3></h3>
+            <p>Press Ctrl+f to start searching ...</p>
+          </div>
+        
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

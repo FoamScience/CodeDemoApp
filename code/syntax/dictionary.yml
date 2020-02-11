@@ -1,0 +1,13 @@
+title: "rjogierhgkb ar giare h"
+description: "fldu  imalzd b uudg"
+
+editor:
+  - text: 'keyword  value;'
+
+terminals:
+  - Term1:
+    options: [minHeight: '350px', promptString: '$']
+    commands:
+      command: 'ls -l /myownfileisdisplayed'
+      options: [onCompleteDelay: 500]
+      output: 'YESSS !!! !!! file1.tx -- --- --- permissions --- --- -- creation time ----'
