@@ -1,11 +1,20 @@
 title: "OpenFOAM keyword-value Example"
-description: "Basic OpenFOAM keyword and dictionary syntax"
+description: "Basic OpenFOAM keyword syntax"
 
 editor:
   - Snippet1:
-    options: {windowTitle: 'SnippetOne', minHeight: '350px', fontSize: '60px'}
+    options: {windowTitle: 'SnippetOne', minHeight: '350px', onCompleteDelay: 10}
+    language: 'javascript'
+    text: |-2 
+      function name () 
+      {
+        doSomething();
+      }
+  - Snippet1:
+    options: {windowTitle: 'SnippetOne', minHeight: '350px', onCompleteDelay: 100000}
     language: 'javascript'
     text: "function name () {doSomething();}"
+
 terminals:
   - Term1:
     options: {minHeight: '350px', promptString: '$'}

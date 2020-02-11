@@ -1,12 +1,12 @@
 {
     "code/syntax/dictionary.yml": {
         "path": "code/syntax/dictionary.yml",
-        "title": "rjogierhgkb ar giare h",
-        "description": "fldu  imalzd b uudg"
+        "title": "OpenFOAM dictionary class reference",
+        "description": "Most important interface methods for OpenFOAM's dictionary class"
     },
     "code/syntax/keyword.yml": {
         "path": "code/syntax/keyword.yml",
         "title": "OpenFOAM keyword-value Example",
-        "description": "Basic OpenFOAM keyword and dictionary syntax"
+        "description": "Basic OpenFOAM keyword syntax"
     }
 }

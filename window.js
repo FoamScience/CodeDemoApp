@@ -2,7 +2,6 @@ $(() => {
     // Require modules
     const crypto = require('crypto')
     const Gdemo = require('@glorious/demo')
-    const demo = new Gdemo("#code-container")
     const fs = require('fs');
     const path = require('path');
     const Fuse = require('fuse.js');
@@ -13,7 +12,8 @@ $(() => {
 
     // Convenience functions
     // Show a piece of code
-    function showCode(demo, filepath) {
+    function showCode(container, filepath) {
+        const demo = new Gdemo(container)
         // If there is a result, use first match
         let fileContents = fs.readFileSync(filepath, 'utf-8');
         let data = yaml.safeLoad(fileContents);
@@ -21,16 +21,18 @@ $(() => {
         // Render text in editor-like env
         if (Object.keys(data).includes('editor'))
         {
+            demo.openApp('editor');
             data.editor.forEach( function(item, index) {
                 const lng = require('prismjs/components/prism-'+item.language);
-                const highlightedCode = Prism.highlight(
+                highlightedCode = Prism.highlight(
                     item.text,
                     Prism.languages[item.language],
                     item.language
                 );
-                demo
-                    .openApp('editor', item.options)
-                    .write(highlightedCode);
+                console.log(highlightedCode)
+            //demo.openApp('editor', item.options)
+            $(".editor-line-text").html("");
+            demo.write(highlightedCode);
             });
         }
         // Render terminal commands
@@ -70,19 +72,20 @@ $(() => {
     let fileContents = fs.readFileSync('database.json');
     let db = JSON.parse(fileContents);
     var fuzzyOptions = {
-        keys: ['description']
+        keys: ['description','title','path']
     }
 
     // Some vars to perform checks
     var stk = 'default';
 
     // On text input
-    $('#text-input').bind('input propertychange', function() {
+    //$('#text-input').bind('input propertychange', function() {
+    $('#text-input').on('input', function() {
         // Current input text
         const text = this.value
 
-        // Delay searching until 5 chars are reached
-        if (text.length >= 5)
+        // Delay searching until 3 chars are reached
+        if (text.length >= 3)
         try {
             // Actively fuzzy search in database
             var f = new Fuse(Object.values(db), fuzzyOptions);
@@ -92,7 +95,8 @@ $(() => {
             if ((Object.keys(result).length > 0) && (stk != result[0].path))
             {
                 // If there is a result, use first match
-                showCode(demo, result[0].path);
+                $("#code-container").html("");
+                showCode("#code-container", result[0].path);
                 stk = result[0].path;
             }
         } catch (e) {

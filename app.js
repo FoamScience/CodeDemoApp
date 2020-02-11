@@ -58,7 +58,7 @@ app.once('ready', () => {
     // Set the default background color of the window to match the CSS
     // background color of the page, this prevents any white flickering
     backgroundColor: "#D6D8DC",
-    //frame: false,
+    frame: false,
     title: "OpenFOAM Code Cheats",
     // Don't show the window until it's ready, this prevents any white flickering
     show: false
