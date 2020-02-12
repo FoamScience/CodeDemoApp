@@ -9,6 +9,7 @@ $(() => {
     const hotkeys = require('hotkeys-js');
     const Prism = require('prismjs');
 
+    let nonce = crypto.randomBytes(16).toString('base64');
 
     // Convenience functions
     // Show a piece of code
