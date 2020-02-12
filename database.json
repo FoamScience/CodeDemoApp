@@ -1,12 +1,7 @@
 {
-    "code/syntax/dictionary.yml": {
-        "path": "code/syntax/dictionary.yml",
-        "title": "OpenFOAM dictionary class reference",
-        "description": "Most important interface methods for OpenFOAM's dictionary class"
-    },
-    "code/syntax/keyword.yml": {
-        "path": "code/syntax/keyword.yml",
-        "title": "OpenFOAM keyword-value Example",
-        "description": "Basic OpenFOAM keyword syntax"
+    "code/syntax/example.yml": {
+        "path": "code/syntax/example.yml",
+        "title": "An example of how YAML files should look like",
+        "description": "A configuration shocasing all possible hacks and tricks ta can be applied"
     }
 }

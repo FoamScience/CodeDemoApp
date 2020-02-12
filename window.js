@@ -14,25 +14,24 @@ $(() => {
     // Show a piece of code
     function showCode(container, filepath) {
         const demo = new Gdemo(container)
-        // If there is a result, use first match
         let fileContents = fs.readFileSync(filepath, 'utf-8');
         let data = yaml.safeLoad(fileContents);
 
         // Render text in editor-like env
         if (Object.keys(data).includes('editor'))
         {
-            demo.openApp('editor');
             data.editor.forEach( function(item, index) {
+                if (item.language == 'cpp')
+                {
+                    const preLng = require('prismjs/components/prism-c');
+                }
                 const lng = require('prismjs/components/prism-'+item.language);
-                highlightedCode = Prism.highlight(
+                const highlightedCode = Prism.highlight(
                     item.text,
                     Prism.languages[item.language],
                     item.language
                 );
-                console.log(highlightedCode)
-            //demo.openApp('editor', item.options)
-            $(".editor-line-text").html("");
-            demo.write(highlightedCode);
+                demo.openApp('editor', item.options).write(highlightedCode).end();
             });
         }
         // Render terminal commands

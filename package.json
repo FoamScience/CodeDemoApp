@@ -18,6 +18,6 @@
     "hotkeys-js": "^3.7.3",
     "js-yaml": "^3.13.1",
     "node-json-db": "^1.0.3",
-    "prismjs": "^1.19.0"
+    "prismjs": "^1.17.0"
   }
 }

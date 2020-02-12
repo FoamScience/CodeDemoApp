@@ -8,14 +8,16 @@ Course.
 
 - Install [Node LTS](https://nodejs.org)
 - Clone this repository
+- [Optional but recommended] Install the [Iosevka font](https://github.com/be5invis/Iosevka)
 - `cd codedemoapp`
 - `npm install` to install the application's dependencies
 - `npm start` to start the application
 
 You can populate/update the code database with:
+``rm database.json``
 ``node_modules/electron/cli.js app.js --update-db``
 
-Press Ctrl-f to start searching for code snippets.
+Press Ctrl-F to start searching for code snippets.
 
 ## Underline Tech
 
@@ -30,3 +32,17 @@ That's it ...
 
 > One last note, this is still under developement; Please open an issue if you judge something
 > is wrong!
+
+## Adding your own snippets
+
+Code snippets are stored as YAML files under `code/` directory. Copy ``code/syntax/example.yml`` and
+start editing it.
+
+- Supported code languages are those of PrismJS
+``ls node_modules/prismjs/components/prism-*.js`` gives a list of such languages
+
+## Theming and syntax highlighting
+
+- The code theme is a combination of the selected PrismJS theme and `css/styles`
+- The default PrimJS theme is "VS"
+- With some overwrites in `css/styles`

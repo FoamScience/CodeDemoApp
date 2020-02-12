@@ -1,0 +1,43 @@
+title: "An example of how YAML files should look like"
+description: "A configuration shocasing all possible hacks and tricks ta can be applied"
+
+editor:
+  - For-Your-Convenience-Title:
+    options: {windowTitle: 'Window Title', minHeight: '350px', onCompleteDelay: 100}
+    language: 'cpp'
+    text: |-2 
+      // One can write C-like code here
+      // Indentation important, : can be incuded safely
+      class MyClass : public ParentClass
+      {
+        //- Private vars
+        const someType& member_;
+        public:
+        //- A constructor
+        explicit MyClass(const SomeOtherTime& ref);
+      }
+
+  - Another-Title-Here:
+    options: {windowTitle: 'Another Window', minHeight: '350px', onCompleteDelay: 100}
+    language: 'python'
+    text: |-2
+      # Switching Language on the fly
+      # But don't confuse readers :)
+      def myFunction(a, b):
+        pass
+
+terminals:
+  - Terminal1:
+    options: {minHeight: '350px', promptString: '(~/SomeDir) $'}
+    commands:
+      - FirstCommand:
+        command: 'ls -l .'
+        options: {onCompleteDelay: 100}
+        output: 'file1.tx -- --- permissions --- --- creation time ----'
+      - SecondCommand:
+        command: cat somefile.txt | grep 'somePattern'
+        options: {onCompleteDelay: 100}
+        output: |+2
+          YAY -- FirstLine with somePattern
+          Another Line with somePattern
+
