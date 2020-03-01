@@ -3,5 +3,10 @@
         "path": "code/syntax/example.yml",
         "title": "An example of how YAML files should look like",
         "description": "A configuration shocasing all possible hacks and tricks ta can be applied"
+    },
+    "code/introduction/getting-started.yml": {
+        "path": "code/introduction/getting-started.yml",
+        "title": "Part1 - Introduction - getting started",
+        "description": "Accessing remote machine over SSH, setting up docker container for foam-extend 4"
     }
 }

@@ -40,4 +40,3 @@ terminals:
         output: |+2
           YAY -- FirstLine with somePattern
           Another Line with somePattern
-

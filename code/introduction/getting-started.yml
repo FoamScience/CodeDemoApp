@@ -1,0 +1,51 @@
+title: "Part1 - Introduction - getting started"
+description: "Accessing remote machine over SSH, setting up docker container for foam-extend 4"
+
+terminals:
+  - LocalTerminal:
+    options: {minHeight: '350px', promptString: '(loc:~) >'}
+    commands:
+      - UserAndTerm:
+        command: '# This is a terminal on your local machine, acting as regular user'
+        options: {onCompleteDelay: 1}
+      - CopyKeyFile:
+        command: 'cp ~/Downloads/remotesshkey.pem ~/.ssh/'
+        options: {onCompleteDelay: 100}
+      - ChangePermissions:
+        command: 'chmod 400 ~/.ssh/remotesshkey.pem'
+        options: {onCompleteDelay: 100}
+      - ConnectToRemote:
+        command: 'ssh -i ~/.ssh/remotesshkey.pem linux1@xxx.xxx.xxx.xxx'
+        options: {onCompleteDelay: 100}
+  - RemoteTerminal:
+    options: {minHeight: '350px', promptString: '(rem:~) >'}
+    commands:
+      - UserAndTerm:
+        command: '# This is a terminal on remote machine, acting as regular user'
+        options: {onCompleteDelay: 1}
+      - RunAsSuperUser:
+        command: 'sudo -s'
+        options: {onCompleteDelay: 100}
+  - RemoteTerminalSudo:
+    options: {minHeight: '350px', promptString: '(rem:~) $'}
+    commands:
+      - UserAndTerm:
+        command: '# This is now a terminal on remote machine, acting as super user'
+        options: {onCompleteDelay: 1}
+      - SaveUrl:
+        command: 'export GIST_URL="https://gist.githubusercontent.com/FoamScience/d661c0b270b940397f5ecd4fa5314015/raw/create-fe4-container.sh"'
+        options: {onCompleteDelay: 100}
+      - RunDockerInstaller:
+        command: 'bash <(curl -s $GIST_URL)'
+        options: {onCompleteDelay: 100}
+        output: |+2
+          Download a sane version of Docker ...
+          Unpack and install ...
+          Cleanup ...
+          Run the docker daemon ...
+          Spinup a FE4 container ...
+      - AccessTheContainer:
+        command: 'docker exec -it fe4 bash'
+        options: {onCompleteDelay: 100}
+        output: |+2
+          root@do86s2y:~/foam/foam-extend-4.0
