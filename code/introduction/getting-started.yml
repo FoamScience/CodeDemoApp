@@ -34,7 +34,7 @@ terminals:
         options: {onCompleteDelay: 1}
       - SaveUrl:
         command: 'export GIST_URL="https://gist.githubusercontent.com/FoamScience/d661c0b270b940397f5ecd4fa5314015/raw/create-fe4-container.sh"'
-        options: {onCompleteDelay: 100}
+        options: {onCompleteDelay: 1000}
       - RunDockerInstaller:
         command: 'bash <(curl -s $GIST_URL)'
         options: {onCompleteDelay: 100}

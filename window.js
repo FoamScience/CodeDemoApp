@@ -14,8 +14,18 @@ $(() => {
     let nonce = crypto.randomBytes(16).toString('base64');
 
     // Convenience functions
+    function sleep(milliseconds) {
+          const date = Date.now();
+          let currentDate = null;
+        do {
+                currentDate = Date.now();
+              
+        } while (currentDate - date < milliseconds);
+        
+    }
     // Show a piece of code
     async function showCode(container, filepath) {
+
         let fileContents = fs.readFileSync(filepath, 'utf-8');
         let data = yaml.safeLoad(fileContents);
 
@@ -40,7 +50,16 @@ $(() => {
                             item.language
                         );
                         await demo.openApp('editor', item.options).write(highlightedCode);
-                        await demo.end();
+                        await demo.end().then(() => 
+                            {
+								if(Object.keys(item.options).includes('endWait'))
+								{
+									sleep(item.options.endWait);
+								} else {
+									sleep(1000);
+								}
+								$(container).html("");
+                            });
                 }, function(){completededitors = 1;});
             }
         }
@@ -72,7 +91,16 @@ $(() => {
                                 demo.respond(com.output);
                             }
                         });
-                        await demo.end();
+                        await demo.end();//.then(() => 
+                           // {
+						   // 	if(Object.keys(item.options).includes('endWait'))
+						   // 	{
+						   // 		sleep(item.options.endWait);
+						   // 	} else {
+						   // 		sleep(1000);
+						   // 	}
+						   // 	$(container).html("");
+                           // });
                     }
                 );
             }

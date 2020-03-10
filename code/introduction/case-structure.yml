@@ -1,0 +1,112 @@
+title: "Part1 - Introduction - case structure"
+description: "OpenFOAM case structure and specific file format"
+
+editor:
+  - FoamHeader:
+    options: {windowTitle: '0/p', minHeight: '350px', onCompleteDelay: 1000}
+    language: 'cpp'
+    text: |-2
+      // File Header for the pressure object
+      FoamFile
+      {
+        version 2;               // file format version, changed once in +20 yrs
+        format  ascii;           // can also be binary
+        class   volScalarField;  // Class of this object
+        object  p;               // Object name
+      }
+  - FilePBanner:
+    options: {windowTitle: '0/p', minHeight: '350px', onCompleteDelay: 1000}
+    language: 'cpp'
+    text: |+2
+      / *--------------------------------*- C++ -*----------------------------------*\
+      | =========                 |                                                 |
+      | \\      /  F ield         | foam-extend: Open Source CFD                    |
+      |  \\    /   O peration     | Version:     4.0                                |
+      |   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+      |    \\/     M anipulation  |                                                 |
+      \*---------------------------------------------------------------------------*/
+      FoamFile
+      {
+          version     2.0;
+          format      ascii;
+          class       volScalarField;
+          object      p;
+      }
+  - FilePDimensionsInternal:
+    options: {windowTitle: '0/p', minHeight: '350px', onCompleteDelay: 1000, endWait: 5000}
+    language: 'cpp'
+    text: |-2
+      dimensions      [0    2      -2   0           0        0       0];
+      //              [Mass Length Time Temperature Quantity Current Luminous intensity];
+  
+      internalField   uniform 0;
+  - FilePBoundary:
+    options: {windowTitle: '0/p', minHeight: '350px', onCompleteDelay: 1000, endWait: 5000}
+    language: 'cpp'
+    text: |-2
+      boundaryField
+      {
+          movingWall
+          {
+              type            zeroGradient;
+          }
+      
+          fixedWalls
+          {
+              type            zeroGradient;
+          }
+      
+          frontAndBack
+          {
+              type            empty;
+          }
+      }
+  - FileMacrosAndRegExp:
+    options: {windowTitle: '0/p', minHeight: '350px', onCompleteDelay: 1000, endWait: 5000}
+    language: 'cpp'
+    text: |-2
+      d            5;
+      someKeyword $d;       // someKeyword now has a value of 5
+  
+      ".*wall"    $d;       // Inserts 5 into any expected keyword that ends with "wall"
+  
+      "(inlet|outlet)"      // The same for dictionaries
+      {
+          type      zeroGradient;
+      }
+  
+      // Also can include another file
+      #include "custom-keywords.cfg"
+
+terminals:
+  - OnContainer:
+    options: {minHeight: '350px', promptString: '(rem:~) >'}
+    commands:
+      - GoToRun:
+        command: 'mkdir -p $FOAM_RUN; run'
+        options: {onCompleteDelay: 1000}
+  - OnContainerInRun:
+    options: {minHeight: '350px', promptString: '(rem:run) >'}
+    commands:
+      - CopyCavityCase:
+        command: 'cp -r $FOAM_TUTORIALS/incompressible/icoFoam/cavity .'
+        options: {onCompleteDelay: 1000}
+      - ListCavityFiles:
+        command: 'ls cavity/*'
+        options: {onCompleteDelay: 1000}
+        output: |-2
+          cavity/0:
+            U  p
+
+          cavity/constant:
+            polyMesh  transportProperties
+
+          cavity/system:
+            controlDict  fvSchemesfvSolution
+      - FilesTypes:
+        command: 'file cavity/0/p cavity/constant/transportProperties cavity/system/controlDict'
+        options: {onCompleteDelay: 0}
+        output: |+2
+          cavity/0/p:                          ASCII text
+          cavity/constant/transportProperties: ASCII text
+          cavity/system/controlDict:           ASCII text

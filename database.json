@@ -8,5 +8,10 @@
         "path": "code/introduction/getting-started.yml",
         "title": "Part1 - Introduction - getting started",
         "description": "Accessing remote machine over SSH, setting up docker container for foam-extend 4"
+    },
+    "code/introduction/case-structure.yml": {
+        "path": "code/introduction/case-structure.yml",
+        "title": "Part1 - Introduction - case structure",
+        "description": "OpenFOAM case structure and specific file format"
     }
 }
