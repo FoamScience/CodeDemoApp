@@ -20,7 +20,7 @@
     "js-yaml": "^3.13.1",
     "node-json-db": "^1.0.3",
     "prismjs": "^1.21.0",
-    "async": "^3.2.0",
+    "async": "^3.2.2",
     "async-series": "^0.0.1"
   }
 }
